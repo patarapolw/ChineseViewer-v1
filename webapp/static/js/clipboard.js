@@ -8,8 +8,8 @@ $(document).ready(function() {
     $item.remove();
   });
 
-  $recent.on('click', '.speak', function(){
-    speak($(this).text());
+  $recent.on('click', '.entry-content', function(){
+    viewItem($(this).text());
   });
 
   $recent.contextMenu({
@@ -61,13 +61,13 @@ $(document).ready(function() {
 });
 
 function setInputBoxListener(){
-  $('button').click(function(event) {
+  $('#itemButton').click(function(event) {
     const itemValue = $('#itemInput').val();
     viewItem(itemValue);
 
     const HTMLTemplate = '<div class="entry">'
     + '<a class="float-left deleter" href="#">x</a> '
-    + '<div class="speak ellipsis multiline">{0}</div>'
+    + '<div class="entry-content ellipsis multiline">{0}</div>'
     + '</div>';
 
     const $item = $(HTMLTemplate.format(itemValue));
