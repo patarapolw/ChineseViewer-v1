@@ -87,7 +87,6 @@ function contextMenuBuilder($trigger, e, itemType, dataOrSelector) {
         name: "View vocab in this item",
         callback: function(key, opt){
           const win = window.open('about:blank', '_blank');
-
           loadVocabFromItem(itemType, data).then(function(){
             win.location.href = '/vocab';
             win.focus();
