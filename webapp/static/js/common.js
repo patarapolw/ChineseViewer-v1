@@ -151,7 +151,7 @@ function setCharacterHoverListener($showPanel){
 
           sessionStorage.setObject('allHanzi', allHanzi);
           sessionStorage.setObject('allHanziNumber', allHanzi.indexOf($(this).text()));
-          const win = window.open('/viewHanzi', '_blank');
+          const win = window.open('/hanzi', '_blank');
           win.focus();
         }
       }
