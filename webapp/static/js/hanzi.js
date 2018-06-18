@@ -14,6 +14,9 @@ $(document).ready(function() {
 
   $('#vocab').contextMenu({
     selector: ".entry",
+    trigger: 'hover',
+    delay: 500,
+    autoHide: true,
     build: function($trigger, e) {
       return contextMenuBuilder($trigger, e, 'vocab', 'a')
     }
@@ -21,6 +24,9 @@ $(document).ready(function() {
 
   $('#sentences').contextMenu({
     selector: ".entry",
+    trigger: 'hover',
+    delay: 500,
+    autoHide: true,
     build: function($trigger, e) {
       return contextMenuBuilder($trigger, e, 'sentence', 'a')
     }

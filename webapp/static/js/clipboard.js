@@ -5,6 +5,13 @@ $(document).ready(function() {
 
   $recent.on('click', '.deleter', function(){
     const $item = $(this).parent();
+    let chineseViewerItems = localStorage.getObject('ChineseViewerItems');
+    const itemIndex = chineseViewerItems.indexOf($item.children('.entry-content').first().text());
+    if(itemIndex > -1){
+      chineseViewerItems.splice(itemIndex, 1);
+    }
+    localStorage.setObject('ChineseViewerItems', chineseViewerItems);
+
     $item.remove();
   });
 
@@ -12,15 +19,18 @@ $(document).ready(function() {
     viewItem($(this).text());
   });
 
-  $recent.contextMenu({
-    selector: ".entry",
-    build: function($trigger, e) {
-      return contextMenuBuilder($trigger, e, $trigger.data('type'), 'div');
-    }
-  });
+  // $recent.contextMenu({
+  //   selector: ".entry",
+  //   build: function($trigger, e) {
+  //     return contextMenuBuilder($trigger, e, $trigger.data('type'), 'div');
+  //   }
+  // });
 
   $('#itemShowarea').contextMenu({
     selector: ".entry",
+    trigger: 'hover',
+    delay: 500,
+    autoHide: true,
     build: function($trigger, e) {
       return contextMenuBuilder($trigger, e, 'sentence', 'div');
     }
@@ -63,7 +73,7 @@ $(document).ready(function() {
 function setInputBoxListener(){
   $('#itemButton').click(function(event) {
     const itemValue = $('#itemInput').val();
-    viewItem(itemValue);
+    saveToLocalStorageAndView(itemValue);
 
     const HTMLTemplate = '<div class="entry">'
     + '<a class="float-left deleter" href="#">x</a> '
@@ -76,7 +86,7 @@ function setInputBoxListener(){
   });
 
   $('#itemInput').on('paste', function(e) {
-    viewItem(e.originalEvent.clipboardData.getData('text'));
+    viewItem(e.originalEvent.clipboardData.getData('text'))
   }).on('input', function(e) {
     viewItem($(this).val());
   })
@@ -102,4 +112,11 @@ async function viewItem(itemValue){
     }
     $showarea.append($line);
   });
+}
+
+function saveToLocalStorageAndView(item){
+  let chineseViewerItems = localStorage.getObject('ChineseViewerItems');
+  chineseViewerItems.push(item);
+  localStorage.setObject('ChineseViewerItems', chineseViewerItems);
+  viewItem(item);
 }

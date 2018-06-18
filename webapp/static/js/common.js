@@ -136,6 +136,9 @@ function setCharacterHoverListener($showPanel){
 
   $showPanel.contextMenu({
     selector: '.hoverElement',
+    trigger: 'hover',
+    delay: 500,
+    autoHide: true,
     items: {
       viewHanzi: {
         name: 'View Hanzi info',
