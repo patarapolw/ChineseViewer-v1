@@ -1,5 +1,11 @@
+const HTMLTemplate = '<div class="entry">'
++ '<a class="float-left deleter" href="#">x</a> '
++ '<div class="entry-content ellipsis multiline">{0}</div>'
++ '</div>';
+
 $(document).ready(function() {
   setInputBoxListener();
+  loadRecent();
 
   const $recent = $('#recent-items');
 
@@ -75,14 +81,7 @@ function setInputBoxListener(){
     const itemValue = $('#itemInput').val();
     saveToLocalStorageAndView(itemValue);
 
-    const HTMLTemplate = '<div class="entry">'
-    + '<a class="float-left deleter" href="#">x</a> '
-    + '<div class="entry-content ellipsis multiline">{0}</div>'
-    + '</div>';
-
-    const $item = $(HTMLTemplate.format(itemValue));
-    $('#recent-items').prepend($item);
-    $item.ellipsis();
+    $('#recent-items').prepend(HTMLTemplate.format(itemValue));
   });
 
   $('#itemInput').on('paste', function(e) {
@@ -115,8 +114,17 @@ async function viewItem(itemValue){
 }
 
 function saveToLocalStorageAndView(item){
-  let chineseViewerItems = localStorage.getObject('ChineseViewerItems');
+  let chineseViewerItems = localStorage.getObject('ChineseViewerItems') || [];
   chineseViewerItems.push(item);
   localStorage.setObject('ChineseViewerItems', chineseViewerItems);
   viewItem(item);
+}
+
+function loadRecent(){
+  const chineseViewerItems = localStorage.getObject('ChineseViewerItems') || [];
+  const $recent = $('#recent-items');
+
+  for(let i=0; i<chineseViewerItems.length; i++){
+    $recent.prepend(HTMLTemplate.format(chineseViewerItems[i]));
+  }
 }

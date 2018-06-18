@@ -12,7 +12,7 @@ def cut_sentence(item):
                 sentence = ''
 
             sentence += char
-            if char in '。？！.?!':
+            if char in '。？！' + string.punctuation:
                 yield sentence
                 sentence = ''
 
