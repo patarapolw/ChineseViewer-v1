@@ -1,0 +1,7 @@
+flask>=1.0
+wordfreq>=2.1
+requests>=2.19
+bs4>=0.0.1
+jieba>=0.39.0
+gtts>=2.0
+regex==2018.02.21
