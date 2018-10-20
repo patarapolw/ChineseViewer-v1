@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ChineseViewer"
-version = "0.3"
+version = "0.3.0.1"
 description = "A Hanzi and vocab viewer for a chunk of text, based on HanziLevelUp."
 authors = ["Pacharapol Withayasakpunt <patarapolw@gmail.com>"]
 license = "Apache-2.0"
@@ -21,6 +21,5 @@ regex = "=2018.02.21"
 gunicorn = "^19.9"
 cjkradlib = "^0.1.2"
 hanzilvlib = "^0.1.2"
-ttslib = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
