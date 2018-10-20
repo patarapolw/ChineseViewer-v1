@@ -65,7 +65,7 @@ function renderChar(){
   if(isNaN(parseInt(currentChar))){
     $('#character').html(currentChar)
   } else {
-    $('#character').html('<div class="big-number">{0}</div>'.format(currentChar));
+    $('#character').html(`<div class="big-number">${currentChar}</div>`);
     $('.big-number').position({
       my: 'center bottom',
       at: 'center bottom-30',
@@ -128,9 +128,9 @@ function renderChar(){
 function renderContent(selector, contentList){
   $(selector).text('');
   for(let i=0; i<contentList.length; i++){
-    const class_name = isNaN(parseInt(contentList[i])) ? 'character' : 'number';
+    const className = isNaN(parseInt(contentList[i])) ? 'character' : 'number';
     $(selector).append(
-      "<div class='{0}'>{1}</div> "
-        .format(class_name, contentList[i]));
+      `<div class='${className}'>${contentList[i]}</div>`
+    );
   }
 }

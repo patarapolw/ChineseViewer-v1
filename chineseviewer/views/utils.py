@@ -1,7 +1,7 @@
 from flask import request
 
 from ttslib.online import Tts as OnlineTts
-from ttslib.local import tts as local_tts
+# from ttslib.local import tts as local_tts
 
 from chineseviewer import app
 

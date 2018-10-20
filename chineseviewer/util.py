@@ -1,6 +1,3 @@
-from flask import jsonify
-
-import json
 import string
 
 
@@ -20,7 +17,3 @@ def cut_sentence(item):
                 sentence = ''
 
     yield sentence
-
-
-def my_jsonify(obj):
-    return jsonify(json.loads(json.dumps(obj, default=repr)))

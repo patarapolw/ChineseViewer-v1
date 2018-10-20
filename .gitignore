@@ -198,3 +198,6 @@ venv.bak/
 
 */user.*
 *.pem
+.vscode/*
+.idea/*
+setup.py

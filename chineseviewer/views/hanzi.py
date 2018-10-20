@@ -1,10 +1,9 @@
-from flask import request
+from flask import request, jsonify
 
 from cjkradlib import RadicalFinder
 from hanzilvlib.dictionary import VocabDict, SentenceDict
 
 from chineseviewer import app
-from chineseviewer.util import my_jsonify
 
 rad_finder = RadicalFinder()
 vocab_dict = VocabDict()
@@ -17,7 +16,7 @@ def get_info():
         current_char = request.form.get('character')
         rad = rad_finder.search(current_char)
 
-        return my_jsonify({
+        return jsonify({
             'compositions': rad.compositions,
             'supercompositions': rad.supercompositions,
             'variants': rad.variants,
@@ -37,6 +36,6 @@ def from_hanzi_get_sentences():
         else:
             sentences = []
 
-        return my_jsonify({
+        return jsonify({
             'sentences': [s.entry for s in sentences]
         })

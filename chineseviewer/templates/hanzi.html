@@ -2,6 +2,19 @@
 
 {% block css %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/hanzi.css') }}"/>
+  <style>
+  @font-face {
+    font-family: HanaMinA;
+    src: url("{{ url_for('static', filename='font/HanaMinA.ttf') }}");
+  }
+  @font-face {
+    font-family: HanaMinB;
+    src: url("{{ url_for('static', filename='font/HanaMinB.ttf') }}");
+  }
+  .character {
+    font-family: HanaMinA, HanaMinB;
+  }
+  </style>
 {% endblock %}
 
 {% block title %}View Hanzi info{% endblock %}

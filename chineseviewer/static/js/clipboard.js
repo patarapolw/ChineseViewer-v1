@@ -25,13 +25,6 @@ $(document).ready(function() {
     viewItem($(this).text());
   });
 
-  // $recent.contextMenu({
-  //   selector: ".entry",
-  //   build: function($trigger, e) {
-  //     return contextMenuBuilder($trigger, e, $trigger.data('type'), 'div');
-  //   }
-  // });
-
   $('#itemShowarea').contextMenu({
     selector: ".entry",
     trigger: 'hover',
@@ -41,39 +34,6 @@ $(document).ready(function() {
       return contextMenuBuilder($trigger, e, 'sentence', 'div');
     }
   });
-
-  // $.contextMenu({
-  //   selector: '#itemShowarea',
-  //   trigger: 'none',
-  //   build: function($trigger, e) {
-  //     dataOrSelector = {
-  //       data: $trigger.data('value'),
-  //       selector: 'div'
-  //     };
-  //     console.log(dataOrSelector.data);
-  //
-  //     return contextMenuBuilder($trigger, e, 'sentence', dataOrSelector);
-  //   }
-  // })
-  //
-  // $('#itemShowarea').mouseover(function(event) {
-  //   let selectionText = getSelectionText();
-  //
-  //   if(selectionText !== ''){
-  //     setTimeout(function(){
-  //       console.log('hover')
-  //       selectionText = getSelectionText();
-  //
-  //       if(selectionText !== ''){
-  //         const position = {
-  //           x: event.clientX,
-  //           y: event.clientY
-  //         };
-  //         $('#itemShowarea').data('value', selectionText).contextMenu(position);
-  //       }
-  //     }, 2000);
-  //   }
-  // });
 });
 
 function setInputBoxListener(){
@@ -103,7 +63,11 @@ async function viewItem(itemValue){
         $line = $('<div />');
       } else {
         if(hasHanzi(data[i])){
-          $line.append('<div class="entry inline"><div onclick="speak(\'{0}\')">{1}</div>'.format(stripHtml(data[i]), data[i]));
+          $line.append(
+            `<div class="entry inline"><div onclick="speak('${stripHtml(data[i])}')">
+              ${data[i]}
+            </div>`
+          );
         } else {
           $line.append(data[i]);
         }
