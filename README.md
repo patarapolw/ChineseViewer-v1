@@ -1,6 +1,6 @@
 # Chinese Viewer
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/patarapolw/ChineseViewer/graphs/commit-activity) 
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/chineseviewer.herokuapp.com.svg)](http://shields.io/)
 [![GitHub release](https://img.shields.io/github/release/patarapolw/ChineseViewer.svg)](https://GitHub.com/patarapolw/ChineseViewer/releases/)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
