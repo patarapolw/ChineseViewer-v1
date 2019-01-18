@@ -1,5 +1,7 @@
 # Chinese Viewer
 
+*Moved to <https://github.com/patarapolw/chineseviewer4k>, and re-written.*
+
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/patarapolw/ChineseViewer/graphs/commit-activity) 
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/chineseviewer.herokuapp.com.svg)](http://shields.io/)
 [![GitHub release](https://img.shields.io/github/release/patarapolw/ChineseViewer.svg)](https://GitHub.com/patarapolw/ChineseViewer/releases/)
